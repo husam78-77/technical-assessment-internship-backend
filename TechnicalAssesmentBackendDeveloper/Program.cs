@@ -22,7 +22,7 @@
         ItemManager<Fruit> itemManager = new ItemManager<Fruit>();
 
         itemManager.AddItem(new Fruit("Apple", "Red"));
-        itemManager.AddItem(new Fruit("Banana", "Yallow"));
+        itemManager.AddItem(new Fruit("Banana", "Yellow"));
         itemManager.AddItem(new Fruit("Durian", "Green"));
         itemManager.PrintAllItems();
 
@@ -32,7 +32,7 @@
     }
 }
 
-public class ItemManager
+public class ItemManager : IItemManager
 {
     private List<string> items = new List<string>();
 
@@ -108,4 +108,13 @@ public class Fruit
     {
         return $"{name} {color}";
     }
+}
+
+
+public interface IItemManager
+{
+    public void AddItem(string item);
+    public void PrintAllItems();
+    public void ClearAllItems();
+
 }
